@@ -1,0 +1,317 @@
+
+// upload() async {
+//     if (_paths == null) {
+//       print('Select a file first.');
+//     }
+// final file =
+//     (await FilePicker.platform.pickFiles(withReadStream: true))!.files.single;
+//     // String token = await getToken();
+//     String token = "16|NH7gvrwJmFoVObly5qdVYY1h1z6aOgRKlJUEf6Es";
+//     print(token);
+//     String url = 'http://10.0.2.2:8000/api/upload-file'; // change it with your api url
+//     ChunkedUploader chunkedUploader = ChunkedUploader(
+//       Dio(
+//         BaseOptions(
+          
+//           baseUrl: url,
+//           contentType: "jpeg",
+//           headers: {
+     
+//             'Authorization': 'Bearer $token'
+//           },
+//         ),
+//       ),
+//     );
+//     try {
+//       Response? response = await chunkedUploader.upload(
+//        fileName:  file.name,
+//         fileSize: file.size,
+//         fileDataStream: file.readStream!,
+//         maxChunkSize: 500000,
+//         path: '/file',
+//         onUploadProgress: (progress) => print(progress),
+//         method: "POST",
+
+   
+       
+       
+        
+//       );
+//       if (kDebugMode) {
+//         print(response);
+//       }
+
+//     } on DioError catch (e) {
+//       if (kDebugMode) {
+//         print(e);
+//       }
+//     }
+//   }
+  
+
+
+
+// void _pickFiles() async {
+//   try {
+//     _paths = (await FilePicker.platform.pickFiles(
+//       withData: true,
+//       type: FileType.any,
+//       allowMultiple: false,
+//       onFileLoading: (FilePickerStatus status) => print(status),
+//       allowedExtensions: (_extension?.isNotEmpty ?? false)
+//           ? _extension?.replaceAll(' ', '').split(',')
+//           : null,
+//     ))
+//         ?.files;
+  
+//   } on PlatformException catch (e) {
+//     if (kDebugMode) {
+//       print('Unsupported operation$e');
+//     }
+//   } catch (e) {
+//     if (kDebugMode) {
+//       print(e.toString());
+//     }
+//   }
+// }
+
+//  selectFile() async {
+//     //  selectedfile = await FilePicker.getFile(
+//     //       type: FileType.custom,
+//     //       allowedExtensions: ['jpg', 'pdf', 'mp4'],
+//     //       //allowed extension to choose
+//     //  );
+     
+//     //for file_pocker plugin version 2 or 2+
+    
+//     FilePickerResult? result = await FilePicker.platform.pickFiles(
+//       type: FileType.custom,
+//       allowedExtensions: ['jpg', 'pdf', 'mp4'],
+//       //allowed extension to choose
+//     );
+
+//     if (result != null) {
+//       //if there is selected file
+//       selectedfile = File(result.files.single.path);
+//     } 
+    
+//      setState((){}); //update the UI so that file name is shown
+//   }
+
+// uploadFile() async {
+//      String uploadurl = "http://192.168.0.112/test/file_upload.php";
+//      //dont use http://localhost , because emulator don't get that address
+//      //insted use your local IP address or use live URL
+//      //hit "ipconfig" in windows or "ip a" in linux to get you local IP
+
+//      FormData formdata = FormData.fromMap({
+//           "file": await MultipartFile.fromFile(
+//                  selectedfile.path, 
+//                  filename: basename(selectedfile.path) 
+//                  //show only filename from path
+//            ),
+//       });
+
+//       response = await dio.post(uploadurl, 
+//           data: formdata,
+//           onSendProgress: (int sent, int total) {
+//               String percentage = (sent/total*100).toStringAsFixed(2);
+//               setState(() {
+//                    progress = "$sent" + " Bytes of " "$total Bytes - " +  percentage + " % uploaded";
+//                    //update the progress
+//               });
+//           },);
+          
+//       if(response.statusCode == 200){
+//             print(response.toString()); 
+//             //print response from server
+//       }else{ 
+//           print("Error during connection to server.");
+//       }
+//   }
+
+// void pickFiles() async {
+//   FilePickerResult? result;
+//     try {
+//         result = await FilePicker.platform.pickFiles(
+//           withData: true,
+//         type: FileType.custom,
+//         allowMultiple: false,
+//         onFileLoading: (FilePickerStatus status) => print(status),
+//         allowedExtensions: ['png', 'jpg', 'jpeg', 'heic'],
+//       );
+          
+//     } on PlatformException catch (e) {
+//       log('Unsupported operation' + e.toString());
+//     } catch (e) {
+//       log(e.toString());
+//     }
+//     setState(() {
+//         if (result != null) {
+//           PlatformFile file = result.files.first;
+//             print(file.name);
+//   print(file.bytes);
+//   print(file.size);
+//   print(file.extension);
+//   print(file.path);
+//           uploadFile(file.bytes as List<int>, file.name);
+
+// } 
+//           //passing file bytes and file name for API call
+         
+
+//     });
+//   }
+
+// upload() async {
+//     if (_paths == null) {
+//       print('Select a file first.');
+//     }
+//     var path = _paths![0].path!;
+//     String fileName = path.split('/').last;
+//     String url = 'http://10.0.2.2:8000/api/upload-file'; // change it with your api url
+//     ChunkedUploader chunkedUploader = ChunkedUploader(
+//       Dio(
+//         BaseOptions(
+//           baseUrl: url,
+//           headers: {
+//             'Content-Type': 'multipart/form-data',
+//             'Connection': 'Keep-Alive',
+//           },
+//         ),
+//       ),
+//     );
+//     try {
+//       Response? response = await chunkedUploader.upload(
+//         fileKey: "file",
+//         method: "POST",
+//         filePath: path,
+//         maxChunkSize: 500000000,
+//         path: url,
+//         data: {
+//           'additional_data': 'hiii',
+//         },
+//         onUploadProgress: (v) {
+//           if (kDebugMode) {
+//             print(v);
+//           }
+//         },
+//       );
+//       if (kDebugMode) {
+//         print(response);
+//       }
+
+//     } on DioError catch (e) {
+//       if (kDebugMode) {
+//         print(e);
+//       }
+//     }
+//   }
+
+
+  // static Future<String> uploadFile(List<int> file, String fileName) async {
+  //   FormData formData = FormData.fromMap({
+  //     "file": MultipartFile.fromBytes(
+  //       file,
+  //       filename: fileName,
+  //       contentType: MediaType("image", "jpg"),
+  //     )
+  //   });
+  //   var dio = Dio();
+  //   var response =
+  //       await dio.post("http://10.0.2.2:8000/api/upload-file", data: formData);
+  //   return response.data['FileId'];
+  // }
+
+// _asyncFileUpload(String text, File file) async{
+//    //create multipart request for POST or PATCH method
+//    var request = http.MultipartRequest("POST", Uri.parse("http://10.0.2.2:8000/api/upload-file"));
+//    //add text fields
+//    request.fields["text_field"] = text;
+//    //create multipart using filepath, string or bytes
+//    var pic = await http.MultipartFile.fromPath("file_field", file.path);
+//    //add multipart to request
+//    request.files.add(pic);
+//    var response = await request.send();
+
+//    //Get the response from the server
+//    var responseData = await response.stream.toBytes();
+//    var responseString = String.fromCharCodes(responseData);
+//    print(responseString);
+
+// }
+
+
+
+// void pickFiles() async {
+//   File _file;
+//   FilePickerResult? result;
+//     try {
+//         result = await FilePicker.platform.pickFiles(
+//           withData: true,
+//         type: FileType.custom,
+//         allowMultiple: false,
+//         onFileLoading: (FilePickerStatus status) => print(status),
+//         allowedExtensions: ['png', 'jpg', 'jpeg', 'heic'],
+//       );
+          
+//     } on PlatformException catch (e) {
+//       log('Unsupported operation' + e.toString());
+//     } catch (e) {
+//       log(e.toString());
+//     }
+//     setState(() {
+//         if (result != null) {
+//           PlatformFile file = result.files.first;
+//           _file = result.files.first.path; 
+//             print(file.name);
+//             print(file.bytes);
+//             print(file.size);
+//             print(file.extension);
+//             print(file.path);
+//           _upload(_file);
+
+// } 
+//           //passing file bytes and file name for API call
+         
+
+//     });
+//   }
+// Future getImage() async {
+//      File _image;
+//      final picker = ImagePicker(); 
+
+//     var _pickedFile = await picker.pickImage(
+//     source: ImageSource.gallery,
+//     imageQuality: 50, // <- Reduce Image quality
+//     maxHeight: 500,  // <- reduce the image size
+//     maxWidth: 500);
+
+//    _image = _pickedFile.path;
+
+
+//   _upload(_image);
+
+// }
+
+
+
+
+// return Center(
+//   child: GestureDetector(
+//     onTap: (){
+//       openFiles();
+//     },
+//     child: Container(
+//       width: 100,
+//       height: 50,
+//       color: Colors.lightBlue,
+//       child: const Center(
+//         child: Text(
+//           "Open file",
+//           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+//         ),
+//       ),
+//     ),
+//   ),
+// );

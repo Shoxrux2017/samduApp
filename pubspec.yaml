@@ -1,0 +1,153 @@
+name: samduapp
+description: A new Flutter project.
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number is used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+# In Windows, build-name is used as the major, minor, and patch parts
+# of the product and file versions while build-number is used as the build suffix.
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.19.2 <3.0.0'
+
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
+dependencies:
+  bitsdojo_window: ^0.1.6
+  cached_network_image: ^3.3.0
+  cupertino_icons: ^1.0.2
+  dio: ^5.7.0
+  dotted_border: ^2.0.0+1
+  file_picker:
+  flutter:
+    sdk: flutter
+
+  google_fonts: ^6.2.1
+  http:
+  iconsax: ^0.0.8
+  image_picker: ^1.0.4
+  json_annotation:
+  loading_indicator: ^3.0.2
+  provider: ^6.0.5
+  shared_preferences: ^2.0.17
+  syncfusion_flutter_pdfviewer: ^27.1.57
+  url_launcher: ^6.1.14
+  vertical_card_pager: ^1.5.0
+  getwidget: ^4.0.0
+  analyzer: ^6.4.1
+  flutter_secure_storage: ^9.2.2
+
+dev_dependencies:
+  build_runner:
+
+  # The "flutter_lints" package below contains a set of recommended lints to
+  # encourage good coding practices. The lint set provided by the package is
+  # activated in the `analysis_options.yaml` file located at the root of your
+  # package. See that file for information about deactivating specific lint
+  # rules and activating additional ones.
+  flutter_lints: ^5.0.0
+  flutter_test:
+    sdk: flutter
+  json_serializable:
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+# The following section is specific to Flutter packages.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/images/top_header.png
+    - assets/images/avatar.jpg
+    - assets/images/app.png
+    - assets/images/personal-information.png
+    - assets/images/calendar.png
+    - assets/images/research.png
+    - assets/images/course.png
+    - assets/images/courses.png
+    - assets/images/study.png
+
+    - assets/images/mathematics.png
+    - assets/images/biological.png
+    - assets/images/geography.png
+    - assets/images/history.png
+    - assets/images/psychology.png
+    - assets/images/chemistry.png
+    - assets/images/it.png
+    - assets/images/juridical.png
+    - assets/images/philology.png
+    - assets/images/preschool.png
+    - assets/images/sport.png
+    - assets/images/control.png
+    - assets/images/icon.png
+    - assets/images/open.png
+    - assets/images/yuklama.jpg
+    - assets/images/sillabus.jpg
+    - assets/images/namunaviy.jpg
+    - assets/images/sillabus_adabiyotlar_ruyxati.jpg
+    - assets/images/simple_prezentation.jpg
+    - assets/images/teacher_prezentation.jpg
+    - assets/images/teacher_prezentation1.jpg
+    - assets/images/article.jpg
+    - assets/images/video_lesson.jpg
+    - assets/images/seminar_training.jpg
+    - assets/images/darslik.jpg
+    - assets/images/science_discovery.jpg
+    - assets/images/patentlar.jpg
+    - assets/images/folder.png
+    - assets/images/documents.png
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/assets-and-images/#resolution-aware
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/assets-and-images/#from-packages
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  fonts:
+    - family: Avenir
+      fonts:
+        - asset: assets/fonts/Avenir-Book.ttf
+        - asset: assets/fonts/Avenir-Heavy.ttf
+          weight: 700
+        - asset: assets/fonts/Avenir-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Avenir-Medium.ttf
+          weight: 500
+
+    - family: Robot
+
+      fonts:
+        - asset: assets/fonts/RobotoMono-Medium.ttf
+
+    - family: Montserrat Regular
+      fonts:
+        - asset: assets/fonts/mo_re.ttf
+
+    - family: Montserrat Medium
+      fonts:
+        - asset: assets/fonts/mo_me.ttf
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/custom-fonts/#from-packages
